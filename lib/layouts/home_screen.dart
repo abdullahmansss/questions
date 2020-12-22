@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget
           backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.white,
+            centerTitle: false,
             elevation: 5.0,
             title: HomeCubit.get(context).titles[HomeCubit.get(context).currentIndex],
             iconTheme: IconThemeData(
