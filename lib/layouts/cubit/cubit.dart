@@ -3,15 +3,21 @@ import 'package:discy_demo/modules/categories/categories_screen.dart';
 import 'package:discy_demo/modules/favourites/favourites_screen.dart';
 import 'package:discy_demo/modules/questions/questions_screen.dart';
 import 'package:discy_demo/modules/settings/settings_screen.dart';
+import 'package:discy_demo/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeCubit extends Cubit<HomeStates> {
+class HomeCubit extends Cubit<HomeStates>
+{
   HomeCubit() : super(HomeStateInitial());
 
   static HomeCubit get(context) => BlocProvider.of(context);
 
-  var widgets = [
+  var userName;
+  var avatar;
+
+  var widgets =
+  [
     QuestionsScreen(),
     CategoriesScreen(),
     FavouritesScreen(),
@@ -39,8 +45,21 @@ class HomeCubit extends Cubit<HomeStates> {
 
   var currentIndex = 0;
 
-  changeIndex(index) {
+  changeIndex(index)
+  {
+    print(index);
+
     currentIndex = index;
+
+    print(currentIndex);
     emit(HomeStateIndex());
+  }
+
+  setData()
+  {
+    userName = getUsername();
+    avatar = getAvatar();
+    print('user data');
+    emit(HomeStateData());
   }
 }
