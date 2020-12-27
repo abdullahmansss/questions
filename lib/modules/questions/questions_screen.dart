@@ -12,7 +12,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class QuestionsScreen extends StatelessWidget {
+class QuestionsScreen extends StatelessWidget
+{
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -31,7 +32,8 @@ class QuestionsScreen extends StatelessWidget {
                     list: list,
                     isScrollable: false,
                   ),
-                  MaterialButton(
+                  if(QuestionsCubit.get(context).currentPage <= QuestionsCubit.get(context).totalPages)
+                    MaterialButton(
                     onPressed: ()
                     {
                       if(QuestionsCubit.get(context).currentPage <= QuestionsCubit.get(context).totalPages)
